@@ -1,4 +1,3 @@
-source /public/gcc/gcc4_8_3.csh
 setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/public/flybrain/R/lib
 set flybrainpaths = ( /public/flybrain/R/ /public/flybrain/cmtk/lib/cmtk/bin/ )
 
