@@ -1,5 +1,5 @@
-set flybrainpaths = ( /public/flybrain/bin /public/flybrain/R/ /public/flybrain/cmtk/lib/cmtk/bin/ /public/flybrain/hdf5/bin /public/flybrain/R/lib64/R/library/rJava/libs)
 setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:/public/flybrain/lib:/public/flybrain/R/lib64:/public/flybrain/R/lib:/public/flybrain/hdf5/lib:/public/flybrain/R/lib64/R/library/rJava/libs
+set flybrainpaths = ( /public/flybrain/bin /public/flybrain/R/bin /public/flybrain/cmtk/lib/cmtk/bin/ /public/flybrain/hdf5/bin /public/flybrain/R/lib64/R/library/rJava/libs)
 
 # avoid duplicates by testing if path is present
 foreach dir ( $flybrainpaths )
