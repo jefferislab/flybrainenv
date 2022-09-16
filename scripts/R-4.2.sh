@@ -48,5 +48,6 @@ ln -sf ${RVERSION}/bin .
 
 # no longer necessary since https://github.com/jefferislab/flybrainenv/commit/4558ba3d589b9e43986cb6e9d31944f2167ea074
 
-ln -sf ${RVERSION}/bin/R .
-ln -sf ${RVERSION}/bin/Rscript .
+# ln -sf ${RVERSION}/bin/R .
+# ln -sf ${RVERSION}/bin/Rscript .
+
