@@ -31,7 +31,37 @@ make install
 
 cd /public/flybrain/R/src/
 
+wget https://www.sqlite.org/2022/sqlite-autoconf-3390300.tar.gz
+tar xvf sqlite-autoconf-3390300.tar.gz 
+cd sqlite-autoconf-3390300
+./configure  --prefix="$RPREFIX" --libdir "$RPREFIX/lib64"
+make -j8
+make install
 
+
+
+wget https://download.osgeo.org/proj/proj-9.1.0.tar.gz
+tar xvf proj-9.1.0.tar.gz
+cd proj-9.1.0
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX:PATH=$RPREFIX ..
+ccmake .. # edit the sqlite3 bin
+make -j8
+make install
+
+wget https://github.com/OSGeo/gdal/releases/download/v3.5.2/gdal-3.5.2.tar.gz
+tar xvf gdal-3.5.2.tar.gz
+cd gdal-3.5.2
+mkdir build
+cd build
+# otherwise finds gcc 8.5
+export CC=`which gcc`
+export CXX=`which g++`
+cmake -DCMAKE_INSTALL_PREFIX:PATH=$RPREFIX ..
+
+
+cd /public/flybrain/R/src/
 
 ./configure --prefix=${RPREFIX} LDFLAGS="-L${RPREFIX}/lib" CPPFLAGS="-I${RPREFIX}/include"
 # lib64?
@@ -49,5 +79,5 @@ ln -sf ${RVERSION}/bin .
 # no longer necessary since https://github.com/jefferislab/flybrainenv/commit/4558ba3d589b9e43986cb6e9d31944f2167ea074
 
 # ln -sf ${RVERSION}/bin/R .
-# ln -sf ${RVERSION}/bin/Rscript .
+#ln -sf ${RVERSION}/bin/Rscript .
 
